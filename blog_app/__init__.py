@@ -22,14 +22,13 @@ def create_app(test_config: Optional[Dict] = None) -> Flask:
     except OSError:
         pass
 
-    @app.route("/")
-    def index():
-        return "OK"
-
     from . import db
     db.init_app(app)
 
     from . import auth
     app.register_blueprint(auth.bp)
+
+    from . import blog
+    app.register_blueprint(blog.bp)
 
     return app

@@ -6,7 +6,10 @@ from flask import (
     redirect, render_template, request,
     session, url_for
 )
-from werkzeug.security import check_password_hash, generate_password_hash
+from werkzeug.security import (
+    check_password_hash,
+    generate_password_hash
+)
 
 from blog_app.db import get_db
 
@@ -64,7 +67,7 @@ def login():
         if error is None:
             session.clear()
             session["user_id"] = user["id"]
-            return redirect(url_for("index"))
+            return redirect(url_for("blog.index"))
 
         flash(error, category="error")
 
@@ -86,7 +89,7 @@ def load_logged_in_user():
 @bp.route("/logout")
 def logout():
     session.clear()
-    return redirect(url_for("index"))
+    return redirect(url_for("blog.index"))
 
 
 def login_required(view):
