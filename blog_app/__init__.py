@@ -25,6 +25,10 @@ def create_app(test_config: Optional[Dict] = None) -> Flask:
     from . import db
     db.init_app(app)
 
+    @app.route("/check")
+    def check():
+        return "OK"
+
     from . import auth
     app.register_blueprint(auth.bp)
 

@@ -11,5 +11,6 @@ setup(
     zip_safe=False,
     install_requires=[
         "flask",
+        "pytest",
     ]
 )

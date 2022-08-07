@@ -3,5 +3,8 @@ venv
 __pycache__
 .DS_Store
 .idea
+.pytest_cache
+.coverage
+*.egg-info
 
 *.sqlite

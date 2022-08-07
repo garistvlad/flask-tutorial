@@ -3,7 +3,7 @@
 {% block title %}Register{% endblock %}
 
 {% block content %}
-    <form method="post">
+    <form method="POST"  action="{{ url_for('auth.register') }}">
         <div class="container col-5">
             <h1 class="h3 mb-3 font-weight-normal">Please Register</h1>
             <div class="mb-3">
